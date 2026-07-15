@@ -1,5 +1,5 @@
 #define MyAppName "Voltaris Battery Lab"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "Voltaris"
 #define MyAppExeName "Voltaris.exe"
 
@@ -40,4 +40,3 @@ Name: "{autodesktop}\Voltaris Battery Lab"; Filename: "{app}\{#MyAppExeName}"; T
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "Запустить Voltaris"; Flags: nowait postinstall skipifsilent
-

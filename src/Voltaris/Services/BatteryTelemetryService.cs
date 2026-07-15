@@ -151,7 +151,7 @@ public sealed class BatteryTelemetryService
         var path = Path.Combine(Path.GetTempPath(), $"voltaris-{Guid.NewGuid():N}.xml");
         try
         {
-            var startInfo = new ProcessStartInfo("powercfg")
+            var startInfo = new ProcessStartInfo(Path.Combine(Environment.SystemDirectory, "powercfg.exe"))
             {
                 UseShellExecute = false,
                 CreateNoWindow = true,
