@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{21C91230-F288-4903-A23D-035CA93C7C66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voltaris", "src\Voltaris\Voltaris.csproj", "{05074DFD-5B89-4C97-8D46-61D7D34A7068}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{23C4F0B6-A0A3-4380-93EC-D7729BE612D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Voltaris.SelfTest", "tests\Voltaris.SelfTest\Voltaris.SelfTest.csproj", "{7507F92C-28B4-467B-B7BE-BCD44671EEDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05074DFD-5B89-4C97-8D46-61D7D34A7068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05074DFD-5B89-4C97-8D46-61D7D34A7068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05074DFD-5B89-4C97-8D46-61D7D34A7068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05074DFD-5B89-4C97-8D46-61D7D34A7068}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7507F92C-28B4-467B-B7BE-BCD44671EEDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7507F92C-28B4-467B-B7BE-BCD44671EEDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7507F92C-28B4-467B-B7BE-BCD44671EEDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7507F92C-28B4-467B-B7BE-BCD44671EEDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{05074DFD-5B89-4C97-8D46-61D7D34A7068} = {21C91230-F288-4903-A23D-035CA93C7C66}
+		{7507F92C-28B4-467B-B7BE-BCD44671EEDA} = {23C4F0B6-A0A3-4380-93EC-D7729BE612D4}
+	EndGlobalSection
+EndGlobal

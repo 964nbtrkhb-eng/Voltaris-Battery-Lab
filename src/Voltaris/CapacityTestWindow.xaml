@@ -1,0 +1,96 @@
+<Window x:Class="Voltaris.CapacityTestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Voltaris · Тест ёмкости" Width="900" Height="780" MinHeight="680"
+        WindowStartupLocation="CenterOwner" WindowStyle="None" ResizeMode="CanResize"
+        Background="#090E18" ShowInTaskbar="False">
+    <Grid>
+        <Grid.RowDefinitions><RowDefinition Height="54"/><RowDefinition/></Grid.RowDefinitions>
+        <Border Background="#0D1422" BorderBrush="#22324B" BorderThickness="1" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+            <Grid Margin="18,0,9,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Ellipse Width="9" Height="9" Fill="#63E5FF" Margin="0,0,10,0"/>
+                    <TextBlock Text="Проверка реальной ёмкости" FontSize="14" FontWeight="SemiBold"/>
+                </StackPanel>
+                <Button HorizontalAlignment="Right" Width="40" Height="34" Padding="0" Background="Transparent" BorderBrush="Transparent" Content="×" FontSize="20" Click="Close_Click"/>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="34,26,34,34">
+                <TextBlock Text="Как проходит измерение" FontSize="27" FontWeight="SemiBold"/>
+                <TextBlock Text="Короткая демонстрация всех этапов займёт ровно 7 секунд. Значения в ней вымышлены — реальные появятся после запуска."
+                           Foreground="{StaticResource MutedBrush}" FontSize="12" TextWrapping="Wrap" Margin="0,7,0,18"/>
+
+                <Border Style="{StaticResource Card}" Background="#101B2D" BorderBrush="#2A4765" Height="300">
+                    <Grid>
+                        <Grid.ColumnDefinitions><ColumnDefinition Width="1.1*"/><ColumnDefinition Width="1*"/></Grid.ColumnDefinitions>
+                        <Grid>
+                            <Ellipse Width="220" Height="220" Opacity="0.17">
+                                <Ellipse.Fill><RadialGradientBrush><GradientStop Color="#5CE4FF"/><GradientStop Color="Transparent" Offset="1"/></RadialGradientBrush></Ellipse.Fill>
+                            </Ellipse>
+                            <Grid Width="210" Height="108">
+                                <Border BorderBrush="#7192B6" BorderThickness="3" CornerRadius="15" Padding="7">
+                                    <Grid ClipToBounds="True">
+                                        <Border x:Name="DemoBatteryFill" Background="#3EDDA3" CornerRadius="9" HorizontalAlignment="Left" Width="34"/>
+                                        <TextBlock x:Name="DemoPercentText" Text="18%" FontSize="33" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                                <Border Width="10" Height="34" Background="#7192B6" CornerRadius="0,4,4,0" HorizontalAlignment="Right" Margin="0,0,-10,0"/>
+                            </Grid>
+                        </Grid>
+
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock x:Name="DemoStageText" Text="1 · Разряд до старта" FontSize="20" FontWeight="SemiBold"/>
+                            <TextBlock x:Name="DemoStageHint" Text="Подготовка аккумулятора" Foreground="{StaticResource AccentBrush}" FontSize="12" Margin="0,5,0,18"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+                                <StackPanel><TextBlock Text="НАПРЯЖЕНИЕ" Style="{StaticResource MetricLabel}"/><TextBlock x:Name="DemoVoltageText" Text="15,2 В" FontSize="18" FontWeight="SemiBold" Margin="0,5,0,0"/></StackPanel>
+                                <StackPanel Grid.Column="1"><TextBlock Text="ТОК" Style="{StaticResource MetricLabel}"/><TextBlock x:Name="DemoCurrentText" Text="−1,28 А" FontSize="18" FontWeight="SemiBold" Margin="0,5,0,0"/></StackPanel>
+                            </Grid>
+                            <Grid Margin="0,16,0,0">
+                                <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+                                <StackPanel><TextBlock Text="МОЩНОСТЬ" Style="{StaticResource MetricLabel}"/><TextBlock x:Name="DemoPowerText" Text="−19,5 Вт" FontSize="18" FontWeight="SemiBold" Margin="0,5,0,0"/></StackPanel>
+                                <StackPanel Grid.Column="1"><TextBlock Text="ВРЕМЯ" Style="{StaticResource MetricLabel}"/><TextBlock x:Name="DemoTimeText" Text="00:00" FontSize="18" FontWeight="SemiBold" Margin="0,5,0,0"/></StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Grid Margin="6,16,6,22">
+                    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal"><Ellipse x:Name="StageDot1" Width="9" Height="9" Fill="#63E5FF" Margin="0,0,8,0"/><TextBlock Text="Подготовка" Foreground="{StaticResource MutedBrush}" FontSize="11"/></StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center"><Ellipse x:Name="StageDot2" Width="9" Height="9" Fill="#34455D" Margin="0,0,8,0"/><TextBlock Text="Зарядка" Foreground="{StaticResource MutedBrush}" FontSize="11"/></StackPanel>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right"><Ellipse x:Name="StageDot3" Width="9" Height="9" Fill="#34455D" Margin="0,0,8,0"/><TextBlock Text="Результат" Foreground="{StaticResource MutedBrush}" FontSize="11"/></StackPanel>
+                </Grid>
+
+                <TextBlock Text="Подготовьте ноутбук" FontSize="20" FontWeight="SemiBold"/>
+                <Grid Margin="0,14,0,0">
+                    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+                    <Border Style="{StaticResource Card}" Margin="0,0,8,0" Padding="18">
+                        <StackPanel>
+                            <TextBlock Text="✓  Рекомендуется" Foreground="{StaticResource GoodBrush}" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="• Начать с 10–20% — разряжать строго до 1% не требуется.&#10;• Подключить штатный адаптер один раз и оставить до конца.&#10;• Оставить Voltaris свёрнутым: замер продолжится в фоне.&#10;• Для высокой точности набрать не менее 50 процентных пунктов."
+                                       Foreground="#A8B4C7" FontSize="12" LineHeight="21" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Grid.Column="1" Style="{StaticResource Card}" Margin="8,0,0,0" Padding="18">
+                        <StackPanel>
+                            <TextBlock Text="×  Лучше не делать" Foreground="#FF9E9E" FontSize="14" FontWeight="SemiBold"/>
+                            <TextBlock Text="• Не запускать игры, рендеринг и тяжёлые обновления.&#10;• Не отключать зарядку и не менять лимит заряда в MyASUS/BIOS.&#10;• Не переводить ноутбук в сон и не закрывать крышку.&#10;• Не накрывать корпус: перегрев меняет скорость зарядки."
+                                       Foreground="#A8B4C7" FontSize="12" LineHeight="21" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Border Background="#0E1C2E" BorderBrush="#284765" BorderThickness="1" CornerRadius="12" Padding="16" Margin="0,16,0,0">
+                    <TextBlock Text="Альтернативный тест: можно начать с любого уровня ниже 70% и завершить после набора минимум 20%. Voltaris экстраполирует результат, но отметит его как оценочный. Для лучшего результата доведите заряд до 99–100%."
+                               Foreground="#A9BED3" FontSize="12" TextWrapping="Wrap" LineHeight="19"/>
+                </Border>
+
+                <Button x:Name="StartButton" Style="{StaticResource PrimaryButton}" Content="Начать точный замер" FontSize="15" Padding="24,14" HorizontalAlignment="Right" Margin="0,22,0,0" Click="Start_Click"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
+
